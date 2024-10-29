@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Timer Component
 
-## Getting Started
+A simple countdown timer component in React that includes start, pause, and reset functionality. This component accepts a maximum countdown time of 59 minutes and 59 seconds.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Displays a countdown timer with formatted minutes and seconds.
+- Includes start, pause, and reset controls.
+- Automatically stops and marks as complete when reaching the target time.
+- When the timer ends, the circle background alternates between green and red colors.
+
+## Props
+
+### Timer Component Props
+The `Timer` component accepts the following props:
+
+| Prop          | Type     | Required | Description                                                                 |
+|---------------|----------|----------|-----------------------------------------------------------------------------|
+| `title`       | `string` | Yes      | The title of the timer, displayed as a label or heading.                    |
+| `endTime`     | `number` | Yes      | Specifies the timer's target duration in seconds (max 59 minutes, 59 seconds). |
+| `elapsedTime` | `number` | No       | The starting point of the timer (default is 0).                             |
+
+### TimerButton Component Props
+The `TimerButton` component is a helper for creating button controls (start, pause, reset) for the timer.
+
+| Prop        | Type                 | Required | Description                                                               |
+|-------------|----------------------|----------|---------------------------------------------------------------------------|
+| `children`  | `React.ReactNode`    | Yes      | The content to display inside the button, such as text or icons.          |
+| `onClick`   | `() => void`         | No       | Function to trigger when the button is clicked.                           |
+| `disabled`  | `boolean`            | No       | Disables the button when `true` (default is `false`).                     |
+
+## Usage
+
+Here’s an example of how to use the `Timer` component:
+
+```tsx
+<Timer title={"My Timer"} endTime={152} elapsedTime={13} />
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+### Prerequisites
+- bun (prefferably)
+### Running Locally
+- Clone the repository.
+- Install dependencies with bun install
+- Run the development server with bun dev.

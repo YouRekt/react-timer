@@ -89,7 +89,7 @@ const Timer = ({ title, endTime, elapsedTime = 0 }: TimerProps) => {
 	const progress = (dasharray * transitionTime) / transitionEndTime;
 
 	return (
-		<div className="w-1/5 h-1/2 min-w-96 bg-component-bg flex flex-col justify-center items-center rounded-component p-4">
+		<div className="w-1/5 md:h-1/2 min-w-96 bg-component-bg flex flex-col justify-center items-center rounded-component p-4">
 			<div className="relative w-full flex flex-col">
 				<div className="flex flex-col justify-center items-center gap-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 					<h1 className="text-timer-text text-xl">{title}</h1>
@@ -123,7 +123,7 @@ const Timer = ({ title, endTime, elapsedTime = 0 }: TimerProps) => {
 					</g>
 				</svg>
 			</div>
-			<div className="flex gap-12">
+			<div className="flex gap-12 w-full justify-center">
 				<TimerButton
 					disabled={isRunning || isCompleted}
 					onClick={handleStart}
